@@ -456,28 +456,11 @@ article {
 #footer h4 {
 	text-transform: uppercase;
 	font-weight: 700;
+	font-family: 'Arvo', serif;
 }
 
-#footer-content .widget_nav_menu ul {
-	float: right;
-	list-style: none;
-	padding: 0;
-	margin: 0px;
-}
-
-#footer-content .widget_nav_menu li {
-	display: inline-block;
-	padding: 0 .8rem;
-}
-
-#footer-content .widget_nav_menu li a {
-	color: #333333;
-	font-size: 0.95em;
-	font-weight: bold;
-}
-
-#footer-content .widget_nav_menu li a:hover {
-	text-decoration: underline;
+#footer .more {
+	font-size: .8rem;
 }
 
 #footer-content p, 
@@ -486,16 +469,48 @@ article {
 	color: #333333;
 }
 
+#footer-content p {
+	font-size: .82rem;
+}
+
 #footer-content a:hover {
 	text-decoration: underline;
 }
 
 #footer .widget-footer {
 	border-right: 1px solid #cac8ba;
+	list-style: none;
+	margin: 0;
+	padding: 0;
 }
 
 #footer .widget-footer:last-child {
 	border: none;
+}
+
+#footer .widget-container {
+	width: 85%;
+	margin: 0 auto;
+}
+
+#footer-content .widget_nav_menu ul {
+	list-style: none;
+	padding: 0;
+	margin: 0 auto;
+}
+
+#footer-content .widget_nav_menu li {
+	display: block;
+	margin: .5rem 0;
+}
+
+#footer-content .widget_nav_menu li a {
+	color: #333333;
+	font-size: 0.9em;
+}
+
+#footer-content .widget_nav_menu li a:hover {
+	text-decoration: underline;
 }
 
 /* ==========================================================================
@@ -536,10 +551,6 @@ h1 {
 	font-size: 1.5em;
 	margin: 14px 0px 12px;
 	line-height: 1.2em;
-}
-
-h1.entry-title {
-	font-weight: 300;
 }
 
 h2 {
@@ -605,6 +616,30 @@ button, .button {
 .mybutton-red:hover, .mybutton-red:focus {
 	background:#c92200;
 	color: white;
+}
+
+.mycart {
+	float: right;
+	color: white;
+	font-size: .9rem;
+	margin: .2em 0 0;
+}
+
+.mycart:hover {
+	color: rgba(255, 255, 255, .8);
+}
+
+.mycart span {
+	background: url(assets/icons/icon-cart.svg) no-repeat;
+	width: 36px;
+	height: 26px;
+	display: inline-block;
+	vertical-align: bottom;
+	margin-right: .2rem;
+}
+
+.mycart:hover span {
+	opacity: .8;
 }
 
 
@@ -685,7 +720,7 @@ button, .button {
 }
 
 #nav-2 ul li a {
-	font-size: 0.98em;
+	font-size: 0.9rem;
 	line-height: 0px;
 	color: rgba(255, 255, 255, .7);
 	font-style: italic;
@@ -878,9 +913,10 @@ button, .button {
 
 #news-items .entry-header {
 	margin: 1rem 0 1rem;
+	float: none;
 }
 
-#news-items li h2 {
+#news-items li .entry-title {
 	font-size: 1.05rem;
 }
 
@@ -908,6 +944,7 @@ button, .button {
 
 .single .entry-header {
 	margin: 2rem 0 .5rem;
+	float: none;
 }
 
 .single .entry-info ul {
@@ -931,11 +968,6 @@ button, .button {
 
 .single .entry-info li:last-child:after {
 	content: '';
-}
-
-.entry-excerpt {
-	font-size: 1.15rem;
-	margin: 1em 0;
 }
 
 .single .post-thumbnail img {
@@ -972,38 +1004,70 @@ button, .button {
  * entry-content
  */
 
+.entry-header {
+	margin: 2rem 0;
+	clear: both;
+	width: 100%;
+	float: left;
+}
+
+.page .entry-title {
+	border-bottom: 1px solid #c92200;
+	float: left;
+	padding-bottom: .7rem;
+	font-size: 1.1rem;
+	text-transform: uppercase;
+}
+
+.entry-excerpt {
+	font-size: 1.2rem;
+	margin: 1em 0;
+}
+
+.entry-content {
+	float: left;
+	width: 100%;
+	clear: both;
+	margin: 0 0 2rem;
+}
+
 .entry-content ul {
-	margin: 1em 0px 0px 0px;
-	padding: 0px 0px 20px 12px;
+	margin: .5rem 0 .8rem 1.5rem;
+	padding: 0;
 	list-style: circle;
 }
 
 .entry-content h1 {
-	font-size: 1.2em;
-	margin: 10px 0 10px;
-}
-
-.entry-content h2.excerpt {
-	color: #666;
+	font-size: 1.2rem;
+	margin: .6rem 0 .6rem;
 }
 
 .entry-content h2 {
 	color: #333;
-}
-
-.entry-content h3 {
-	color: #007fc0;
-	text-transform: none;
+	font-size: 1.2rem;
+	margin: .6rem 0 .6rem;
 }
 
 .entry-content h4 {
-	text-transform: none;
 	font-size: 1em;
 	color: #333;
 }
 
 .entry-content h5, .entry-content h6 {
 	color: #444;
+}
+
+.entry-content blockquote {
+	font-style: italic;
+	border-top: 1px solid #ddd;
+	border-bottom: 1px solid #ddd;
+	border-left:none;
+	padding: 0;
+}
+
+.entry-content blockquote p {
+	font-size: 1.2em;
+	margin: 1.25rem 0 1.25rem;
 }
 
 .entry-content img {
@@ -1174,7 +1238,7 @@ a.post-thumbnail:hover img {
 }
 
 .entry-meta .tag-links a:hover {
-	background-color: #57cccc;
+	background-color: #c92200;
 	color: #fff;
 }
 
@@ -1191,7 +1255,7 @@ a.post-thumbnail:hover img {
 }
 
 .entry-meta .tag-links a:hover:before {
-	border-right-color: #57cccc;
+	border-right-color: #c92200;
 }
 
 .entry-meta .tag-links a:after {
@@ -1204,6 +1268,50 @@ a.post-thumbnail:hover img {
 	left: -2px;
 	width: 4px;
 }
+
+#social-links {
+    margin: 0 auto 1em;
+}
+
+#social-links li {
+    display: inline-block;
+}
+
+#social-links a {
+    display: block;
+    float: left;
+    width: 46px;
+    height: 46px;
+    background-image: url(assets/icons/icons-social.svg);
+    background-repeat: no-repeat;
+    text-indent: -9999px;
+    margin: 0px 3px 0 0;
+}
+
+#social-links a:hover {
+	opacity: .8;
+}
+
+.facebook-link a {
+    background-position: left center;
+}
+
+.twitter-link a {
+    background-position: -50px center;
+}
+
+.youtube-link a {
+    background-position: -101px center;
+}
+
+.vimeo-link a {
+    background-position: -151px center;
+}
+
+.instagram-link a {
+    background-position: -203px center;
+}
+
 
 /* ==========================================================================
    5. Media Queries

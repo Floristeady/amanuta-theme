@@ -43,6 +43,14 @@
 							<?php  wp_nav_menu( array( 'container_id' => 'menu-secondary', 'theme_location' => 'secondary', 'sort_column' => 'menu_order' ) ); ?>
 					</nav>
 					
+					<?php if ( is_active_sidebar( 'header-widget-area' ) ) : ?>
+
+					<ul class="widget-list">
+						<?php dynamic_sidebar( 'header-widget-area' ); ?>
+					</ul>
+				
+					<?php endif; ?>
+					
 				</div>
 				
 			</div>

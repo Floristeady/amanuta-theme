@@ -185,6 +185,19 @@ add_filter( 'get_the_excerpt', 'amanuta_custom_excerpt_more' );
  * @uses register_sidebar
  */
 function amanuta_widgets_init() {
+	
+	// Header area, located below the Primary Widget Area in the sidebar. Empty by default.
+	register_sidebar( array(
+		'name' => __( 'Header Widget', 'amanuta' ),
+		'id' => 'header-widget-area',
+		'description' => __( 'Header Widget', 'amanuta' ),
+		'before_widget' => '<div id="%1$s" class="widget-header %2$s">',
+		'after_widget' => '</div>',
+		'before_title' => '<h3 class="widget-title">',
+		'after_title' => '</h3>',
+	) );
+
+	
 	// Area 1, located at the top of the sidebar.
 	register_sidebar( array(
 		'name' => __( 'Main Sidebar', 'amanuta' ),
@@ -196,24 +209,14 @@ function amanuta_widgets_init() {
 		'after_title' => '</h3>',
 	) );
 
-	// Area 2, located below the Primary Widget Area in the sidebar. Empty by default.
-	register_sidebar( array(
-		'name' => __( 'Secondary Sidebar', 'amanuta' ),
-		'id' => 'secondary-widget-area',
-		'description' => __( 'Secondary Sidebar Widget', 'amanuta' ),
-		'before_widget' => '<div id="%1$s" class="widget-container %2$s">',
-		'after_widget' => '</div>',
-		'before_title' => '<h3 class="widget-title">',
-		'after_title' => '</h3>',
-	) );
-
+	
 	// Area 3, located in the footer. Empty by default.
 	register_sidebar( array(
 		'name' => __( 'Footer Widget Area', 'amanuta' ),
 		'id' => 'first-footer-widget-area',
 		'description' => __( 'An optional widget area for your site footer', 'amanuta' ),
-		'before_widget' => '<aside id="%1$s" class="widget-container %2$s">',
-		'after_widget' => '</aside>',
+		'before_widget' => '<li id="%1$s" class="widget-container %2$s">',
+		'after_widget' => '</li>',
 		'before_title' => '<h4 class="widget-title">',
 		'after_title' => '</h4>',
 	) );
@@ -223,8 +226,8 @@ function amanuta_widgets_init() {
 		'name' => __( 'Second Footer Widget Area', 'amanuta' ),
 		'id' => 'second-footer-widget-area',
 		'description' => __( 'An optional widget area for your site footer', 'amanuta' ),
-		'before_widget' => '<aside id="%1$s" class="widget-container %2$s">',
-		'after_widget' => '</aside>',
+		'before_widget' => '<li id="%1$s" class="widget-container %2$s">',
+		'after_widget' => '</li>',
 		'before_title' => '<h4 class="widget-title">',
 		'after_title' => '</h4>',
 	) );
@@ -234,19 +237,8 @@ function amanuta_widgets_init() {
 		'name' => __( 'Third Footer Widget Area', 'amanuta' ),
 		'id' => 'third-footer-widget-area',
 		'description' => __( 'An optional widget area for your site footer', 'amanuta' ),
-		'before_widget' => '<aside id="%1$s" class="widget-container %2$s">',
-		'after_widget' => '</aside>',
-		'before_title' => '<h4 class="widget-title">',
-		'after_title' => '</h4>',
-	) );
-	
-	// Area 4, located in the footer. Empty by default.
-	register_sidebar( array(
-		'name' => __( 'Fourth Footer Widget Area', 'amanuta' ),
-		'id' => 'fourth-footer-widget-area',
-		'description' => __( 'An optional widget area for your site footer', 'amanuta' ),
-		'before_widget' => '<aside id="%1$s" class="widget-container %2$s">',
-		'after_widget' => '</aside>',
+		'before_widget' => '<li id="%1$s" class="widget-container %2$s">',
+		'after_widget' => '</li>',
 		'before_title' => '<h4 class="widget-title">',
 		'after_title' => '</h4>',
 	) );

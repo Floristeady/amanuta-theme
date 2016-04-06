@@ -275,12 +275,12 @@ hr {
  */
 
 a {
-	color: #24890d;
+	color: #c92200;
 	text-decoration: none;
 }
 
 a:visited {
-	color: #24890d;
+	color: #c92200;
 }
 
 a:focus {
@@ -289,7 +289,7 @@ a:focus {
 
 a:active,
 a:hover {
-	color: #41a62a;
+	color: #94151b;
 	outline: 0;
 }
 

@@ -18,12 +18,4 @@
 	
 	<?php endif; ?>
 
-	<?php if ( is_active_sidebar( 'secondary-widget-area' ) ) : ?>
-
-	<ul class="widget-list">
-		<?php dynamic_sidebar( 'secondary-widget-area' ); ?>
-	</ul>
-
-	<?php endif; ?>
-
 </aside>
