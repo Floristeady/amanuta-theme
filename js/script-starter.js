@@ -22,6 +22,7 @@ jQuery(function ($) {
 	
 	function onLoadAndResize(){  
 		homeGallery();
+		newsGallery();
 	}
 
 	function homeGallery() {  
@@ -49,6 +50,19 @@ jQuery(function ($) {
 			    }
 		    }
 		});
+	}
+	
+	function newsGallery() {
+		$('.single .gallery').flexslider({
+			animation: "fade",
+		    animationLoop: true,
+		    controlNav: true,
+		    directionNav: false,
+		    //smoothHeight: true,
+		    selector: "dl"
+		   
+		});
+		
 	}
 	
 	/************************* 

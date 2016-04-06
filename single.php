@@ -9,24 +9,27 @@
 
 get_header(); ?>
 
-<div id="content" class="site-content" role="main">
-
-	<?php
+<div id="content" class="site-content" role="main">	
+	
+	<div class="row">
+		<div class="column medium-9 small-centered">
+		<?php
+			
+			while ( have_posts() ) : the_post();
+	
+				get_template_part( 'content');
+	
+				amanuta_post_nav();
+	
+				if ( comments_open() || get_comments_number() ) {
+					comments_template();
+				}
+			endwhile;
+		?>
+		</div>
 		
-		while ( have_posts() ) : the_post();
-
-			get_template_part( 'content', get_post_format() );
-
-			amanuta_post_nav();
-
-			if ( comments_open() || get_comments_number() ) {
-				comments_template();
-			}
-		endwhile;
-	?>
+	</div>
 
 </div><!-- #content -->
-
-<?php get_sidebar(); ?>
 
 <?php get_footer(); ?>

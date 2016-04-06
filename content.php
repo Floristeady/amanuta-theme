@@ -12,23 +12,18 @@
 
 <?php if ( is_single() ) : ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<?php amanuta_post_thumbnail(); ?>
-
 
 	<header class="entry-header">
-		<?php if ( in_array( 'category', get_object_taxonomies( get_post_type() ) ) && amanuta_categorized_blog() ) : ?>
-		<div class="entry-meta">
-			<span class="cat-links"><?php echo get_the_category_list( _x( ', ', 'Used between list items, there is a space after the comma.', 'amanuta' ) ); ?></span>
+		
+		<div class="entry-info">
+				
+			<?php  if ( !is_category() ) :  
+			 	 the_category(); 
+			 endif; ?>
+			
 		</div>
-		<?php
-			endif;
-
-			if ( is_single() ) :
-				the_title( '<h1 class="entry-title">', '</h1>' );
-			else :
-				the_title( '<h1 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h1>' );
-			endif;
-		?>
+		
+		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 
 		<div class="entry-meta">
 			<?php
@@ -47,7 +42,14 @@
 				edit_post_link( __( 'Edit', 'amanuta' ), '<span class="edit-link">', '</span>' );
 			?>
 		</div><!-- .entry-meta -->
-	</header><!-- .entry-header -->
+		
+		<div class="entry-excerpt">
+		<?php the_excerpt();  ?>
+		</div>
+		
+	</header>
+	
+	<?php amanuta_post_thumbnail(); ?>
 
 	<?php if ( is_search() ) : ?>
 	<div class="entry-summary">
@@ -76,8 +78,14 @@
 <li id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 	<div class="inner">
-		<a class="post-thumbnail" href="<?php the_permalink(); ?>">
-			<?php the_post_thumbnail('thumbnail-news');  ?>
+		<a class="post-thumbnail" href="<?php the_permalink(); ?>">			
+			<?php 
+			if ( is_front_page() ) :
+				the_post_thumbnail('thumbnail-news-home');  
+			else : 
+			 	the_post_thumbnail('thumbnail-news');  
+			endif; 
+			?>
 		</a>
 		
 		<header class="entry-header">

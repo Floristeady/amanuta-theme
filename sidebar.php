@@ -8,7 +8,7 @@
  */
 ?>
 
-<div id="sidebar">
+<aside id="sidebar">
 			
 	<?php if ( is_active_sidebar( 'primary-widget-area' ) ) : ?>
 
@@ -26,4 +26,4 @@
 
 	<?php endif; ?>
 
-</div>
+</aside>

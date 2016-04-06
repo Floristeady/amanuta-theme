@@ -12,6 +12,7 @@ get_header(); ?>
 <div id="content" class="site-content">
 
 	<?php if ( have_posts() ) : ?>
+	<div class="row">
 
 	<header class="archive-header">
 		<h1 class="archive-title"><?php printf( __( 'Category Archives: %s', 'amanuta' ), single_cat_title( '', false ) ); ?></h1>
@@ -25,28 +26,25 @@ get_header(); ?>
 		?>
 	</header>
 
-	<div class="">
+	<div class="column medium-9">
 
-		<?php 
+		<ul id="news-items" class="small-block-grid-1 medium-block-grid-2">
+					
+			<?php while ( have_posts() ) : the_post();  
+				get_template_part( 'content' ); 
+			endwhile;  ?>
+			
+		</ul>
+		<?php amanuta_paging_nav(); ?>
 
-			while ( have_posts() ) : the_post();
-
-			get_template_part( 'content', get_post_format() );
-
-			endwhile;
-
-			amanuta_paging_nav();
-
-		else :
-		
-			get_template_part( 'content', 'none' );
-
-		endif;
-	?>
-	
 	</div>
+	
+	<div class="column medium-3">
+		<?php get_sidebar(); ?>
+	</div>
+	
+	<?php endif; ?>
 	
 </div><!-- #content -->
 
-<?php get_sidebar(); ?>
 <?php get_footer(); ?>

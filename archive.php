@@ -17,9 +17,10 @@ get_header(); ?>
 <div id="content" class="site-content">
 
 	<?php if ( have_posts() ) : ?>
-
-	<header class="page-header">
-		<h1 class="page-title">
+	<div class="row">
+	
+	<header class="archive-header">
+		<h1 class="archive-title">
 			<?php
 				if ( is_day() ) :
 					printf( __( 'Daily Archives: %s', 'amanuta' ), get_the_date() );
@@ -29,7 +30,9 @@ get_header(); ?>
 
 				elseif ( is_year() ) :
 					printf( __( 'Yearly Archives: %s', 'amanuta' ), get_the_date( _x( 'Y', 'yearly archives date format', 'amanuta' ) ) );
-
+					
+				elseif ( is_tag() ) :
+						printf( __( 'Tag Archives: %s', 'amanuta' ), single_tag_title( '', false ) ); 
 				else :
 					_e( 'Archives', 'amanuta' );
 
@@ -37,24 +40,26 @@ get_header(); ?>
 			?>
 		</h1>
 	</header>
+	
+	<div class="column medium-9">
 
-	<?php
-			while ( have_posts() ) : the_post();
+		<ul id="news-items" class="small-block-grid-1 medium-block-grid-2">
+					
+			<?php while ( have_posts() ) : the_post();  
+				get_template_part( 'content' ); 
+			endwhile;  ?>
 			
-				get_template_part( 'content', get_post_format() );
+		</ul>
+		<?php amanuta_paging_nav(); ?>
 
-			endwhile;
+	</div>
+	
+	<div class="column medium-3">
+		<?php get_sidebar(); ?>
+	</div>
+	
+	<?php endif; ?>
 
-			amanuta_paging_nav();
-
-		else :
-
-			get_template_part( 'content', 'none' );
-
-		endif;
-	?>
 </div>
-
-<?php get_sidebar(); ?>
 
 <?php get_footer(); ?>

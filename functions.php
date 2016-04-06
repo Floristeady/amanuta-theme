@@ -41,7 +41,8 @@ function amanuta_setup() {
 	// Enable support for Post Thumbnails, and declare two sizes.
 	add_theme_support( 'post-thumbnails' );
 	add_image_size( 'homeslide', 1440, 540, true );
-	add_image_size( 'thumbnail-news', 330, 330, false );
+	add_image_size( 'thumbnail-news-home', 999, 330, false );
+	add_image_size( 'thumbnail-news', 999, 280, false );
 
 	// Make theme available for translation
 	// Translations can be filed in the /languages/ directory
@@ -133,7 +134,7 @@ add_filter( 'wp_page_menu_args', 'amanuta_page_menu_args' );
  * @return int
  */
 function amanuta_excerpt_length( $length ) {
-	return 40;
+	return 50;
 }
 add_filter( 'excerpt_length', 'amanuta_excerpt_length' );
 
@@ -154,7 +155,7 @@ add_filter( 'excerpt_more', 'amanuta_auto_excerpt_more' );
  * @return string "Continue Reading" link
  */
 function amanuta_continue_reading_link() {
-	return ' <a href="'. get_permalink() . '">' . __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'amanuta' ) . '</a>';
+	return '';
 }
 
 /**
@@ -189,10 +190,10 @@ function amanuta_widgets_init() {
 		'name' => __( 'Main Sidebar', 'amanuta' ),
 		'id' => 'primary-widget-area',
 		'description' => __( 'Main Sidebar Widget', 'amanuta' ),
-		'before_widget' => '<aside id="%1$s" class="widget-container %2$s">',
-		'after_widget' => '</aside>',
-		'before_title' => '<h1 class="widget-title">',
-		'after_title' => '</h1>',
+		'before_widget' => '<div id="%1$s" class="widget-container %2$s">',
+		'after_widget' => '</div>',
+		'before_title' => '<h3 class="widget-title">',
+		'after_title' => '</h3>',
 	) );
 
 	// Area 2, located below the Primary Widget Area in the sidebar. Empty by default.
@@ -200,10 +201,10 @@ function amanuta_widgets_init() {
 		'name' => __( 'Secondary Sidebar', 'amanuta' ),
 		'id' => 'secondary-widget-area',
 		'description' => __( 'Secondary Sidebar Widget', 'amanuta' ),
-		'before_widget' => '<aside id="%1$s" class="widget-container %2$s">',
-		'after_widget' => '</aside>',
-		'before_title' => '<h1 class="widget-title">',
-		'after_title' => '</h1>',
+		'before_widget' => '<div id="%1$s" class="widget-container %2$s">',
+		'after_widget' => '</div>',
+		'before_title' => '<h3 class="widget-title">',
+		'after_title' => '</h3>',
 	) );
 
 	// Area 3, located in the footer. Empty by default.
