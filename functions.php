@@ -43,6 +43,7 @@ function amanuta_setup() {
 	add_image_size( 'homeslide', 1440, 540, true );
 	add_image_size( 'thumbnail-news-home', 999, 330, false );
 	add_image_size( 'thumbnail-news', 999, 280, false );
+	add_image_size( 'thumbnail-downloads', 120, 120);
 
 	// Make theme available for translation
 	// Translations can be filed in the /languages/ directory

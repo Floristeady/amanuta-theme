@@ -11,7 +11,6 @@ get_header(); ?>
 <div id="content" class="site-content row">
 	
 	<?php
-		// Start the Loop.
 		while ( have_posts() ) : the_post(); ?>
 
 			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>

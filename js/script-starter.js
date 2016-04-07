@@ -22,7 +22,9 @@ jQuery(function ($) {
 	
 	function onLoadAndResize(){  
 		homeGallery();
-		newsGallery();
+		insertGallery();
+		appGallery();
+		appCarousel();
 	}
 
 	function homeGallery() {  
@@ -52,8 +54,13 @@ jQuery(function ($) {
 		});
 	}
 	
-	function newsGallery() {
-		$('.single .gallery').flexslider({
+	function insertGallery() {
+		
+		$('div.gallery').each(function(i) {
+		    $('.gallery-icon a').addClass('view');
+		});
+		
+		$('div.gallery').flexslider({
 			animation: "fade",
 		    animationLoop: true,
 		    controlNav: true,
@@ -62,7 +69,26 @@ jQuery(function ($) {
 		    selector: "dl"
 		   
 		});
-		
+	}
+	
+	function appGallery() {
+		$('#app-gallery').flexslider({
+			animation: "fade",
+		    animationLoop: true,
+		    controlNav: true,
+		    directionNav: false
+		});
+	}
+	
+	function appCarousel() {
+		$('#carousel-gallery').flexslider({
+			animation: "slide",
+		    animationLoop: true,
+		    controlNav: false,
+		    directionNav: true,
+		    itemWidth: 180,
+			itemMargin: 40
+		});
 	}
 	
 	/************************* 
