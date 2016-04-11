@@ -44,7 +44,7 @@ function amanuta_setup() {
 	add_image_size( 'thumbnail-news-home', 999, 330, false );
 	add_image_size( 'thumbnail-news', 999, 280, false );
 	add_image_size( 'thumbnail-downloads', 120, 120);
-
+	
 	// Make theme available for translation
 	// Translations can be filed in the /languages/ directory
 	load_theme_textdomain( 'amanuta', TEMPLATEPATH . '/languages' );
@@ -566,6 +566,57 @@ function my_default_content( $post_content, $post ) {
     return $post_content;
 }
 add_filter( 'default_content', 'my_default_content', 10, 2 );
+
+/**
+ * Hide Admin Bar 
+ *
+ * @since amanuta 1.0
+ *
+*/
+show_admin_bar(false);
+
+/**
+ * Filter Images
+ *
+ * @since amanuta 1.0
+ *
+*/
+//filter image post
+function filter_image_sizes($sizes) {
+    global $post;
+    global $post_type;
+	
+    // chequeamos si es que existe el post, si no existe significa que estamos subiendo la imagen a través de la sección multimedia
+    if( !$post || !is_object( $post ) ){ return $sizes; }
+
+    if($post->post_type == 'post'){
+        unset( $sizes['homeslide']);
+        unset( $sizes['thumbnail-downloads']);
+        unset( $sizes['medium']);
+		unset( $sizes['large']);
+    }
+
+    return $sizes;
+}
+add_filter('intermediate_image_sizes_advanced', 'filter_image_sizes');
+
+//filter image home
+function filter_image_sizes_page($sizes) {
+    global $post;
+    global $post_type;
+	
+    if( !$post || !is_object( $post ) ){ return $sizes; }
+
+    if($post->post_type == 'page'){
+        unset( $sizes['thumbnail-news']);
+        unset( $sizes['thumbnail-news-home']);
+        unset( $sizes['medium']);
+		unset( $sizes['large']);
+    }
+
+    return $sizes;
+}
+add_filter('intermediate_image_sizes_advanced', 'filter_image_sizes_page');
 
 
 ?>

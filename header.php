@@ -34,13 +34,21 @@
 	<body <?php body_class(); ?>>
 				
 		<header id="header" role="banner">
+			
+			 <div id="inner-wrap">
+		       <nav id="mobile-access" role="navigation" class="">
+		          <?php wp_nav_menu( array( 'container_class' => 'menu-header', 'theme_location' => 'primary' ) ); ?>
+		          <a href="javascript:void(0)" id="nav-close-btn"></a>
+		       </nav><!-- #access -->            
+		       <div class="drawer-close drawer-back"></div>
+		    </div> 
 		
-			<div id="top-header">
+			<div id="top-header" class="show-for-medium-up">
 				
 				<div class="row">
 			
 					<nav id="nav-2">
-							<?php  wp_nav_menu( array( 'container_id' => 'menu-secondary', 'theme_location' => 'secondary', 'sort_column' => 'menu_order' ) ); ?>
+						<?php  wp_nav_menu( array( 'container_id' => 'menu-secondary', 'theme_location' => 'secondary', 'sort_column' => 'menu_order' ) ); ?>
 					</nav>
 					
 					<?php if ( is_active_sidebar( 'header-widget-area' ) ) : ?>
@@ -56,8 +64,16 @@
 			</div>
 
 			<div class="inner">
-				
+
 				<div class="row">
+					
+					<a href="javascript:void(0)" id="button-mobile" class="icon-menu">
+		               <span class="bars">
+		                 <div class="top-bar-button"></div>
+		                 <div class="middle-bar"></div>
+		                 <div class="bottom-bar"></div>
+		               </span>
+	            	</a>
 				
 					<?php global $logo, $options, $logo_settings;
 					$logo_settings = get_option('plugin_options', $options ); 
@@ -76,7 +92,13 @@
 	
 					</div>
 					
-					<nav id="access" role="navigation" class="clearfix">
+					<?php if ( is_active_sidebar( 'header-widget-area' ) ) : ?>
+						<ul class="widget-list widget-for-small show-for-small">
+							<?php dynamic_sidebar( 'header-widget-area' ); ?>
+						</ul>
+					<?php endif; ?>
+					
+					<nav id="access" role="navigation" class="show-for-medium-up">
 						<a class="screen-reader-text skip-link" href="#content"><?php _e( 'Skip to content', 'amanuta' ); ?></a>
 						<?php wp_nav_menu( array( 'container_class' => 'menu-header', 'theme_location' => 'primary' ) ); ?>
 					</nav><!-- #access -->
@@ -88,3 +110,5 @@
 
 		<section id="main" role="main">
 			
+			<?php if (is_page() and !is_front_page()) {				
+				include('inc/breadcrumbs.php'); } ?>

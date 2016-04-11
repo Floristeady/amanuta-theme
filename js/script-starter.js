@@ -21,10 +21,16 @@ jQuery(function ($) {
 	}
 	
 	function onLoadAndResize(){  
+		getbrowserwidth();
 		homeGallery();
 		insertGallery();
 		appGallery();
 		appCarousel();
+		lightBox();
+		
+		if(browserwidth <= mediumwidth ) {
+	       menuMobile();
+	    }
 	}
 
 	function homeGallery() {  
@@ -57,15 +63,15 @@ jQuery(function ($) {
 	function insertGallery() {
 		
 		$('div.gallery').each(function(i) {
-		    $('.gallery-icon a').addClass('view');
+		    $('.gallery-icon a').addClass('tosrus');
 		});
 		
 		$('div.gallery').flexslider({
 			animation: "fade",
 		    animationLoop: true,
 		    controlNav: true,
+		    animationLoop: false, 
 		    directionNav: false,
-		    //smoothHeight: true,
 		    selector: "dl"
 		   
 		});
@@ -86,11 +92,41 @@ jQuery(function ($) {
 		    animationLoop: true,
 		    controlNav: false,
 		    directionNav: true,
+		    animationLoop: false,  
 		    itemWidth: 180,
 			itemMargin: 40
 		});
 	}
 	
+	function lightBox() {
+		$("a.tosrus").tosrus();
+	}
+	
+	function menuMobile(){
+
+    	$(document).off('click', '#button-mobile').on('click', '#button-mobile',function(e) {
+	        allowSubmit = true;
+	          $('#mobile-access').addClass('active');
+	          $('#inner-wrap').addClass('active');
+	          $('body').addClass('open-drawer');
+	          
+	          addEventListener('touchmove', function(e) { 
+	            if (allowSubmit) {
+	              //e.preventDefault(); 
+	           }
+	        }, true);
+	    }); 
+      
+	    $('#nav-close-btn, .drawer-close').bind('click focus', function(e){ 
+	          allowSubmit = false;
+	          $('#inner-wrap').removeClass('active');
+	        $('#mobile-access').removeClass('active');
+	        $('body').removeClass('open-drawer');
+	        e.preventDefault();
+	    }); 
+	  
+	}
+		
 	/************************* 
 	Ejecución
 	**************************/

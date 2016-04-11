@@ -13,7 +13,7 @@
 		 $ancestors = $post->ancestors;
          if(!$post->post_parent){
           // will display the subpages of this top level page
-          $children = wp_list_pages("title_li=&child_of=".$post->ID."&echo=0");
+          $children = wp_list_pages("title_li=&child_of=".$post->ID."&echo=0&sort_order=ASC&sort_column=menu_order");
           
           } else {
           // diplays only the subpages of parent level

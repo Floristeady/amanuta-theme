@@ -30,12 +30,6 @@ get_header(); ?>
 				<div class="entry-content">
 					<?php
 						the_content();
-						wp_link_pages( array(
-							'before'      => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'amanuta' ) . '</span>',
-							'after'       => '</div>',
-							'link_before' => '<span>',
-							'link_after'  => '</span>',
-						) );
 				
 						edit_post_link( __( 'Edit', 'amanuta' ), '<span class="edit-link">', '</span>' );
 					?>
@@ -64,9 +58,14 @@ get_header(); ?>
 	
 				<li>
 					<div class="inner">
-						<a title="<?php echo $childtitle; ?>" href="<?php echo $permalink; ?>">
+						
+						<a title="<?php echo $childtitle; ?>" href="<?php echo $permalink; ?>">						<?php if ( $thumbnail ) { ?>
 							<?php echo $thumbnail; ?>
+						<?php } else { ?>
+							<img src="<?php echo get_template_directory_uri(); ?>/assets/images/placeholder-box.jpg">
+						<?php } ?>
 						</a>
+					
 			 			<div class="text">
 				 			<h3>
 					 			<a href="<?php echo $permalink; ?>"><?php echo $childtitle; ?></a>

@@ -20,20 +20,8 @@ get_header(); ?>
 					<ul class="slides">
 						<?php foreach($rows as $row) { ?>
 						<li>
-							<?php if ($row['gallery_text_up'] or $row['gallery_text_down']) { ?>
-							<div class="row">
-								<div class="text">
-									<div class="inner <?php if ($row['gallery_select'] == 'derecha') { echo 'right'; } else if ($row['gallery_select'] == 'izquierda') { echo 'left'; } else if ($row['gallery_select'] == 'centro') { echo 'center'; } ?>">
-										<h2><?php echo $row['gallery_text_up'] ?></h2>
-										<h1><?php echo $row['gallery_text_down'] ?></h1>
-										<?php if ($row['gallery_link']) { ?>
-										<a title="" class="button mybutton-red" href="<?php echo $row['gallery_link'] ?>"><?php echo $row['gallery_button'] ?></a>
-										<?php } ?>
-									</div>
-								</div>
-							</div>
-							<?php } ?>	
-							 <?php if ($row['gallery_image']) { ?>
+							
+							<?php if ($row['gallery_image']) { ?>
 							    <?php if ($row['gallery_link']) { ?>
 							 		<a class="img" href="<?php echo $row['gallery_link'] ?>">
 							 		<?php $attachment_id = $row['gallery_image'];
@@ -46,6 +34,22 @@ get_header(); ?>
 								 	</span>
 							 	<?php } ?>	
 							 <?php } ?>		
+							
+							<?php if ($row['gallery_text_up'] or $row['gallery_text_down']) { ?>
+							<div class="text">
+								<div class="row">
+									<div class="inner <?php if ($row['gallery_select'] == 'derecha') { echo 'right'; } else if ($row['gallery_select'] == 'izquierda') { echo 'left'; } else if ($row['gallery_select'] == 'centro') { echo 'center'; } ?>">
+										<h2 class="show-for-medium-up"><?php echo $row['gallery_text_up'] ?></h2>
+										<h1><?php echo $row['gallery_text_down'] ?></h1>
+										<?php if ($row['gallery_link']) { ?>
+										<a title="" class="button mybutton-red" href="<?php echo $row['gallery_link'] ?>"><?php echo $row['gallery_button'] ?></a>
+										<?php } ?>
+									</div>
+								</div>
+							</div>
+							<?php } ?>	
+							
+							 
 						</li>				
 						<?php } ?>
 					</ul>
@@ -72,8 +76,11 @@ get_header(); ?>
 	<div id="featured-news">
 		<div class="row">
 			<div class="title">
-				<h3>Noticias y últimas novedades</h3>
-				<a class="more" title="leer todas noticias" href="#">Leer Todas </a>
+					<?php $posts_page = get_option( 'page_for_posts' );
+					$content = get_post( $posts_page )->post_excerpt; 
+					$title   = get_post( $posts_page )->post_title; ?>
+				<h3 class="entry-subtitle"><?php echo $title; ?></h3>
+				<a class="more" title="leer todas noticias" href="<?php echo get_permalink( get_page_by_path( 'noticias' ) ) ?>"><?php _e('Leer Todas','amanuta') ?></a>
 			</div>
 				
 			<ul id="news-items" class="small-block-grid-1 medium-block-grid-2">
@@ -89,6 +96,8 @@ get_header(); ?>
 		</div>
 	</div>
 	<? endif; ?>
+	
+	<?php include('inc/featured-home.php'); ?>
 
 
 </div><!-- #content -->

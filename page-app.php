@@ -51,14 +51,14 @@ get_header(); ?>
 			
 			</div><!--row-->
 			
-			
+			<?php if (get_field('app_gallery') or get_field('app_about') ) { ?>
 			<section id="app-about" class="section-app">
 				
-				<div class="row border">
+				<div class="row border-top">
 					
-					<?php 
-						$images = get_field('app_gallery');						
-						if( $images ): ?>
+					<?php $images = get_field('app_gallery');	
+					if( $images ): ?>	
+					
 					<div class="column medium-8">
 
 						<div id="app-gallery" class="flexslider">
@@ -74,7 +74,7 @@ get_header(); ?>
 					<?php endif; ?>
 					
 					<?php if (get_field('app_about')) { ?>
-					<div class="column medium-4">
+					<div class="column <?php if (!$images) { echo 'medium-12 no-gallery'; } else { echo 'medium-4'; } ?>">
 						<div class="entry-content-app entry-about">
 							<?php the_field('app_about');?>
 							
@@ -84,6 +84,7 @@ get_header(); ?>
 				
 				</div>
 			</section>
+			<?php } ?>
 			
 			<?php $images = get_field('app_carrusel');						
 		    if( $images ): ?>
@@ -95,7 +96,7 @@ get_header(); ?>
 						    <ul class="slides">
 						        <?php foreach( $images as $image ): ?>
 						            <li>
-							             <a href="<?php echo $image['url']; ?>">
+							             <a class="tosrus" href="<?php echo $image['url']; ?>">
 							                <img src="<?php echo $image['sizes']['large']; ?>" alt="<?php echo $image['alt']; ?>" />
 							             </a>
 						            </li>
@@ -107,9 +108,10 @@ get_header(); ?>
 			</section>
 			<?php endif; ?>
 			
+			<?php if (get_field('app_featured_left') or get_field('app_featured_right') ) { ?>
 			<section id="app-featured" class="section-app">
 				
-				<div class="row ">
+				<div class="row border-bottom">
 					<?php if (get_field('app_featured_left')) { ?>
 					<div class="column medium-6">
 						<div class="entry-content-app">
@@ -131,7 +133,9 @@ get_header(); ?>
 				</div>
 				
 			</section>
+			<?php } ?>
 			
+			<?php if (get_field('app_credit_left') or get_field('app_credit_right') ) { ?>
 			<section id="app-credits" class="section-app">
 				
 				<div class="row border">
@@ -157,8 +161,8 @@ get_header(); ?>
 					</div>
 				</div>
 
-				
 			</section>
+			<?php } ?>
 			
 		</article>
 

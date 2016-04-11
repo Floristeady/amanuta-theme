@@ -128,7 +128,7 @@
 			
 			echo '<p><a href="'. $home .'/wp-admin/media-new.php" target="_blank"><em>'; _e( 'Upload your own logo image</em></a> using the WordPress Media Library and insert the URL here:</p>', 'amanuta' );
 			echo '<input type="text" size="80" name="plugin_options[logo_theme_url]" value="'.$logo.'" onfocus="javascript:if(this.value===\'\'){this.select();}">';
-			echo '<img style="margin-top: 10px;" src="'. (($logo!=='') ? $logo :  get_template_directory_uri() .'/images/logo.png').'">';
+			echo '<img style="margin-top: 10px;" src="'. (($logo!=='') ? $logo :  get_template_directory_uri() .'/assets/logo.png').'">';
 		}
 	endif; // logotype
 
