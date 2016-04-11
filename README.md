@@ -14,6 +14,6 @@ Amanuta Theme for Amanuta website.
 === Plugins ===
 
 Advanced Custom Fields Pro
-Contacto Form 7
+Contact Form 7
 
 === Change Log ===
