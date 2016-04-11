@@ -573,14 +573,14 @@ add_filter( 'default_content', 'my_default_content', 10, 2 );
  * @since amanuta 1.0
  *
 */
-show_admin_bar(false);
+//show_admin_bar(false);
 
 /**
- * Filter Images
+ * Filter Images (dont work)
  *
  * @since amanuta 1.0
  *
-*/
+
 //filter image post
 function filter_image_sizes($sizes) {
     global $post;
@@ -617,6 +617,6 @@ function filter_image_sizes_page($sizes) {
     return $sizes;
 }
 add_filter('intermediate_image_sizes_advanced', 'filter_image_sizes_page');
-
+*/
 
 ?>

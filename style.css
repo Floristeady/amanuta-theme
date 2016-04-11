@@ -706,29 +706,57 @@ button, .button {
 
 #access li {
 	display: inline-block;
+	position: relative;
 } 
 
 #access li a {
 	color: #211915;
 	font-size: .9em;
 	padding: 0px 10px;
-	margin: 0px 4px;
 	text-align: center;
 	text-transform: uppercase;
     font-family: 'Arvo', serif;
 } 
 
-#access li a:hover {
-	color: #c92200;
+#access li a:hover, .sub-menu a:hover {
+	color: #c92200 !important;
 }
 
 #access li.current_page_item a, 
 #access li.current-page-ancestor a {
-
+	color: #c92200;
 }
 
 #access ul.sub-menu {
 	display: inline;
+}
+
+.sub-menu {
+  position:absolute;
+  top: 20px;
+  padding:1rem 1rem 0.4rem !important;
+  background-color:#fff;
+  width:180px;
+  z-index:100;
+  left:-10%;
+  display:none;
+  margin:0;
+  box-shadow:1px 1px 1px rgba(0,0,0,.1);
+}
+
+.sub-menu li {
+  display:block;
+  clear:both;
+  text-align:left;
+  width:100%;
+  font-size:0.9em;
+  margin: 0.4rem 0;
+}
+
+.sub-menu a {
+  color:#666666 !important;
+  padding: 0 !important;
+  font-size: .75rem !important;
 }
 
 

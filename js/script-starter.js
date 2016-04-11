@@ -31,6 +31,10 @@ jQuery(function ($) {
 		if(browserwidth <= mediumwidth ) {
 	       menuMobile();
 	    }
+	    
+	    if(browserwidth >= smallwidth){
+	      menudesplegable();
+	    }
 	}
 
 	function homeGallery() {  
@@ -126,6 +130,16 @@ jQuery(function ($) {
 	    }); 
 	  
 	}
+	
+	function menudesplegable(){
+	    $("#access ul.menu ").superfish({
+	      delay:100,
+	      animation:{opacity:'show',height:'show'},
+	      speed:'fast',
+	      autoArrows:false,
+	      dropShadows:true
+	    });
+	  }
 		
 	/************************* 
 	Ejecución

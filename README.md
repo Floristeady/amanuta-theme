@@ -11,4 +11,9 @@ Tags: html5, foundation, responsive web design, media queries, two menus, sideba
 
 Amanuta Theme for Amanuta website.
 
+=== Plugins ===
+
+Advanced Custom Fields Pro
+Contacto Form 7
+
 === Change Log ===
