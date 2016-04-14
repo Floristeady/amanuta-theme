@@ -66,8 +66,7 @@
 			
 			add_settings_field('meta_tags', 'Meta Keywords tags?:', 'meta_tags_setting', 'theme-admin', 'main_section');
 	
-			add_settings_field('favicon', 'Got Favicon?:', 'favicon_setting', 'theme-admin', 'main_section');
-			add_settings_field('favicon_ithing', 'Got <em><abbr title="iPhone, iTouch, iPad...">iThing</abbr></em> Favicon?', 'favicon_ithing_setting', 'theme-admin', 'main_section');
+
 			add_settings_field('modernizr_js', 'Modernizr JS?:', 'modernizr_js_setting', 'theme-admin', 'main_section');
 			add_settings_field('jquery_js', 'jQuery JS?:', 'jquery_js_setting', 'theme-admin', 'main_section');
 			add_settings_field('plugins_js', 'jQuery plug-ins JS:', 'plugins_js_setting', 'theme-admin', 'main_section');
@@ -128,7 +127,7 @@
 			
 			echo '<p><a href="'. $home .'/wp-admin/media-new.php" target="_blank"><em>'; _e( 'Upload your own logo image</em></a> using the WordPress Media Library and insert the URL here:</p>', 'amanuta' );
 			echo '<input type="text" size="80" name="plugin_options[logo_theme_url]" value="'.$logo.'" onfocus="javascript:if(this.value===\'\'){this.select();}">';
-			echo '<img style="margin-top: 10px;" src="'. (($logo!=='') ? $logo :  get_template_directory_uri() .'/assets/logo.png').'">';
+			echo '<img width="250" style="margin-top: 10px;" src="'. (($logo!=='') ? $logo :  get_template_directory_uri() .'/assets/logo.png').'">';
 		}
 	endif; // logotype
 
@@ -167,36 +166,6 @@
 		}
 	endif; // google_verification_setting
 
-
-	//	callback fn for favicon
-	if ( ! function_exists( 'favicon_setting' ) ):
-		function favicon_setting() {
-			$options = get_option('plugin_options');
-			$checked = (isset($options['favicon']) && $options['favicon']) ? 'checked="checked" ' : '';
-			echo '<input class="check-field" type="checkbox" name="plugin_options[favicon]" value="true" ' .$checked. '/>';
-			echo _e( '<p>If you plan to use a <a href="http://en.wikipedia.org/wiki/Favicon">favicon</a> for your site, place the "favicon.ico" file in the root directory of your site.</p>', 'amanuta' );
-			echo _e( '<p>If the file is in the right location, you don\'t really need to select this option, browsers will automatically look there and no additional code will be added to your pages.</p>', 'amanuta' );
-			echo _e( '<p>Selecting this option will add the following code to the <code>&lt;head&gt;</code> of your pages:</p>', 'amanuta' );
-			echo '<code>&lt;link rel="shortcut icon" href="/favicon.ico"&gt;</code>';
-		}
-	endif; // favicon_setting
-
-	//	callback fn for favicon_ithing
-	if ( ! function_exists( 'favicon_ithing_setting' ) ):
-		function favicon_ithing_setting() {
-			$options = get_option('plugin_options');
-			$checked = (isset($options['favicon_ithing']) && $options['favicon_ithing']) ? 'checked="checked" ' : '';
-			echo '<input class="check-field" type="checkbox" name="plugin_options[favicon_ithing]" value="true" ' .$checked. '/>';
-			echo _e( '<p>To allow <em>iThing(iPhone, iTouch, iPad...)</em> users to <a href="http://developer.apple.com/library/safari/#documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html">add an icon for your site to their Home screen</a>, place the "apple-touch-icon.png" file in the root directory of your site.</p>', 'amanuta' );
-			echo _e( '<p>If the file is in the right location, you don\'t really need to select this option, browsers will automatically look there and no additional code will be added to your pages.</p>', 'amanuta' );
-			echo _e( '<p>Selecting this option will add the following code to the <code>&lt;head&gt;</code> of your pages:</p>', 'amanuta' );
-			echo '<code>&lt;link rel="apple-touch-icon" href="/apple-touch-icon.png"&gt;</code>';
-			echo '<code>&lt;link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png"&gt;</code>';
-			echo '<code>&lt;link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png"&gt;</code>';
-			echo '<code>&lt;link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png"&gt;</code>';
-		}
-	endif; // favicon_ithing_setting
-
 		//	callback fn for modernizr_js
 	if ( ! function_exists( 'modernizr_js_setting' ) ):
 		function modernizr_js_setting() {
@@ -215,13 +184,13 @@
 		function jquery_js_setting() {
 			$options = get_option('plugin_options');
 			$checked = (isset($options['jquery_js']) && $options['jquery_js']) ? 'checked="checked" ' : '';
-			$version = (isset($options['jquery_version']) && $options['jquery_version'] && $options['jquery_version'] !== '') ? $options['jquery_version'] : '1.10.2';
+			$version = (isset($options['jquery_version']) && $options['jquery_version'] && $options['jquery_version'] !== '') ? $options['jquery_version'] : '1.12.2';
 			$inhead = (isset($options['jquery_head']) && $options['jquery_head']) ? 'checked="checked" ' : '';
 			echo '<input class="check-field" type="checkbox" name="plugin_options[jquery_js]" value="true" ' .$checked. '/>';
 			echo _e('<p><a href="http://jquery.com/">jQuery</a> is a JS library that aids greatly in developing high-quality JavaScript quickly and efficiently.</p>', 'amanuta' );
 			echo  _e( '<p>Selecting this option will add the following code to your pages just before the: <code>&lt;/body&gt;</code></p>', 'amanuta' );
 			echo '<code>&lt;script src="//ajax.googleapis.com/ajax/libs/jquery/'.$version.'/jquery.min.js">&lt;/script&gt;</code>';
-			echo '<code>&lt;script&gt;window.jQuery || document.write("&lt;script src="js/jquery-1.10.2.min.js"&lt;/script&gt;")</code>';
+			echo '<code>&lt;script&gt;window.jQuery || document.write("&lt;script src="js/jquery-1.12.2.min.js"&lt;/script&gt;")</code>';
 			echo '<p><input class="check-field" type="checkbox" name="plugin_options[jquery_head]" value="true" ' .$inhead. '/>';
 			echo _e('<p><strong>Note: <a href="http://developer.yahoo.com/blogs/ydn/posts/2007/07/high_performanc_5/">Best-practices</a> recommend that you load JS as close to the <code>&lt;/body&gt;</code> as possible.  If for some reason you would prefer jQuery and jQuery plug-ins to be in the <code>&lt;head&gt;</code>, please select this option.</strong></p>', 'amanuta' );
 			echo _e('<p>The above code first tries to download jQuery from Google\'s CDN (which might be available via the user\'s browser cache).  If this is not successful, it uses the theme\'s version.</p>', 'amanuta' );
@@ -313,24 +282,6 @@
 		}
     endif; // cache_buster
 
-
-	//	$options['favicon']
-	if ( ! function_exists( 'add_favicon' ) ):
-		function add_favicon() {
-			echo '<link rel="shortcut icon" href="/favicon.ico">'.PHP_EOL;
-		}
-	endif; // add_favicon
-
-	//	$options['favicon_ithing']
-	if ( ! function_exists( 'add_favicon_ithing' ) ):
-		function add_favicon_ithing() {
-			echo '<link rel="apple-touch-icon" href="/apple-touch-icon.png">'.PHP_EOL;
-			echo '<link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">'.PHP_EOL;
-			echo '<link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">'.PHP_EOL;
-			echo '<link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">'.PHP_EOL;
-		}
-	endif; // add_favicon_ithing
-
 	//	$options['modernizr_js']
 	if ( ! function_exists( 'add_modernizr_script' ) ):
 		function add_modernizr_script() {
@@ -346,7 +297,7 @@
 		function add_jquery_script() {
 			$cache = cache_buster();
 			$options = get_option('plugin_options');
-			$version = ($options['jquery_version']) ? $options['jquery_version'] : '1.10.2';
+			$version = ($options['jquery_version']) ? $options['jquery_version'] : '1.12.2';
 			wp_deregister_script( 'jquery' ); // get rid of WP's jQuery
 			echo '<script src="//ajax.googleapis.com/ajax/libs/jquery/'.$version.'/jquery.min.js"></script>'.PHP_EOL; // try getting from CDN
 			echo '<script>window.jQuery || document.write(unescape(\'%3Cscript src="' .BP_THEME_URL. '/js/jquery.js'.$cache.'"%3E%3C/script%3E\'))</script>'.PHP_EOL; // fallback to local if CDN fails
@@ -394,14 +345,6 @@
 			
 			if (isset($options['meta_tags']) && $options['meta_tags'] && $options['meta_tags_keys'] && $options['meta_tags_keys'] !== 'tags...') {
 				add_action('wp_print_styles', 'add_meta_tags');
-			}
-
-			if (isset($options['favicon']) && $options['favicon']) {
-				add_action('wp_print_styles', 'add_favicon');
-			}
-
-			if (isset($options['favicon_ithing']) && $options['favicon_ithing']) {
-				add_action('wp_print_styles', 'add_favicon_ithing');
 			}
 
 			if (isset($options['modernizr_js']) && $options['modernizr_js']) {

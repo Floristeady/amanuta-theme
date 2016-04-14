@@ -8,7 +8,7 @@
 
 get_header(); ?>
 
-<div id="content" class="site-content page-app">
+<div id="content" class="site-content page-app page-similar">
 	
 	<?php
 		while ( have_posts() ) : the_post(); ?>
@@ -20,8 +20,14 @@ get_header(); ?>
 				<?php					
 					the_title( '<header class="entry-header"><h1 class="entry-title">', '</h1></header><!-- .entry-header -->' );
 				?>
+				
+				<div class="column medium-3 wrapper-thumb">
+					<div class="thumbnail <?php if ( has_excerpt() ) : echo 'with-excerpt';  endif;?>	">
+					<?php the_post_thumbnail(); ?>
+					</div>
+				</div>
 			
-				<div class="column medium-9 no-padding-left">
+				<div class="column medium-9 no-padding-left wrapper-content">
 					<?php  if ( has_excerpt() ) : ?>
 						<div class="entry-excerpt">
 					 	 <?php the_excerpt(); ?>
@@ -39,15 +45,7 @@ get_header(); ?>
 					
 							
 					</div><!-- .entry-content -->
-				</div>
-				
-				<div class="column medium-3">
-					<div class="thumbnail <?php if ( has_excerpt() ) : echo 'with-excerpt';  endif;?>	">
-						
-				
-						<?php the_post_thumbnail(); ?>
-					</div>
-				</div>
+				</div>	
 			
 			</div><!--row-->
 			

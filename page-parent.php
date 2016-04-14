@@ -46,7 +46,7 @@ get_header(); ?>
 			          
 			$mypages = get_pages( $args );?>
 				
-			<ul id="child-content" class="small-block-grid-1 medium-block-grid-2 medium-block-grid-4">
+			<ul id="child-content" class="small-block-grid-2 medium-block-grid-3 large-block-grid-4">
 				<?php foreach( $mypages as $postpage ) {
 					$content = apply_filters('the_content', $postpage->post_content);
 					$childtitle = $postpage->post_title;

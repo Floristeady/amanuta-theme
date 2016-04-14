@@ -12,15 +12,6 @@
  * @since amanuta 1.0
  */
 
-/**
- * Set the content width based on the theme's design and stylesheet.
- *
- * Used to set the width of images and content. Should be equal to the width the theme
- * is designed for, generally via the style.css stylesheet.
- */
-if ( ! isset( $content_width ) )
-	$content_width = 1024;
-
 /** Tell WordPress to run amanuta_setup() when the 'after_setup_theme' hook is run. */
 add_action( 'after_setup_theme', 'amanuta_setup' );
 
@@ -67,11 +58,6 @@ function amanuta_setup() {
 	add_theme_support( 'html5', array(
 		'search-form', 'comment-form', 'comment-list',
 	) );
-		
-	// This theme allows users to set a custom background.
-	add_theme_support( 'custom-background', apply_filters( 'amanuta_custom_background_args', array(
-		'default-color' => 'ffffff',
-	) ) );
 	
 } endif;
 
@@ -285,14 +271,14 @@ function amanuta_scripts() {
 	wp_enqueue_style( 'genericons', get_template_directory_uri() . '/css/genericons.css', array(), '3.0.2' );
 
 	// Load our main stylesheet.
-	wp_enqueue_style( 'amanutasteady-style', get_stylesheet_uri(), array( 'genericons' ) );
+	wp_enqueue_style( 'amanuta-style', get_stylesheet_uri(), array( 'genericons' ) );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
 	
 	if ( is_singular() && wp_attachment_is_image() ) {
-		wp_enqueue_script( 'amanutasteady-keyboard-image-navigation', get_template_directory_uri() . '/js/keyboard-image-navigation.js', array( 'jquery' ), '20130402' );
+		wp_enqueue_script( 'amanuta-keyboard-image-navigation', get_template_directory_uri() . '/js/keyboard-image-navigation.js', array( 'jquery' ), '20130402' );
 	}
 
 	
@@ -559,7 +545,7 @@ function amanuta_post_thumbnail() {
 function my_default_content( $post_content, $post ) {
     if( $post->post_type )
     switch( $post->post_type ) {
-        case 'page':
+        case 'post':
             $post->comment_status = 'closed';
         break;
     }
@@ -575,48 +561,5 @@ add_filter( 'default_content', 'my_default_content', 10, 2 );
 */
 //show_admin_bar(false);
 
-/**
- * Filter Images (dont work)
- *
- * @since amanuta 1.0
- *
-
-//filter image post
-function filter_image_sizes($sizes) {
-    global $post;
-    global $post_type;
-	
-    // chequeamos si es que existe el post, si no existe significa que estamos subiendo la imagen a través de la sección multimedia
-    if( !$post || !is_object( $post ) ){ return $sizes; }
-
-    if($post->post_type == 'post'){
-        unset( $sizes['homeslide']);
-        unset( $sizes['thumbnail-downloads']);
-        unset( $sizes['medium']);
-		unset( $sizes['large']);
-    }
-
-    return $sizes;
-}
-add_filter('intermediate_image_sizes_advanced', 'filter_image_sizes');
-
-//filter image home
-function filter_image_sizes_page($sizes) {
-    global $post;
-    global $post_type;
-	
-    if( !$post || !is_object( $post ) ){ return $sizes; }
-
-    if($post->post_type == 'page'){
-        unset( $sizes['thumbnail-news']);
-        unset( $sizes['thumbnail-news-home']);
-        unset( $sizes['medium']);
-		unset( $sizes['large']);
-    }
-
-    return $sizes;
-}
-add_filter('intermediate_image_sizes_advanced', 'filter_image_sizes_page');
-*/
 
 ?>

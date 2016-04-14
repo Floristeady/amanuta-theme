@@ -8,7 +8,7 @@
 
 get_header(); ?>
 
-<div id="content" class="site-content page-author">
+<div id="content" class="site-content page-list page-similar">
 	
 	<?php
 		while ( have_posts() ) : the_post(); ?>
