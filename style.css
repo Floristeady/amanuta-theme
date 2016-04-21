@@ -663,7 +663,7 @@ button, .button {
 	float: right;
 	color: white;
 	font-size: .9rem;
-	margin: .2em 0 0;
+	margin: .2em .5rem 0;
 }
 
 .mycart:hover {
@@ -677,6 +677,7 @@ button, .button {
 	display: inline-block;
 	vertical-align: bottom;
 	margin-right: .2rem;
+	margin-top: -4px;
 }
 
 .widget-for-small .mycart .icon {
@@ -709,17 +710,22 @@ button, .button {
 }
 
 #access li {
-	display: inline-block;
-	position: relative;
+  display: table-cell;
+  width: 1%;
+  float: none;
+  text-align: center;
+  position:relative;
+  vertical-align: middle;
+  padding: .4em 0 0;
+  font-size: .8em;
+  font-weight: 100;
+  font-family: 'Arvo', serif;
+  text-transform: uppercase;
 } 
 
 #access li a {
-	color: #211915;
-	font-size: .9em;
-	padding: 0 .9rem;
-	text-align: center;
-	text-transform: uppercase;
-    font-family: 'Arvo', serif;
+	color:#413c35;
+	 white-space: nowrap;  
 } 
 
 #access li a:hover, .sub-menu a:hover {
@@ -749,7 +755,7 @@ button, .button {
 }
 
 .sub-menu li {
-  display:block;
+  display:block !important;
   clear:both;
   text-align:left;
   width:100%;
@@ -761,6 +767,7 @@ button, .button {
   color:#666666 !important;
   padding: 0 !important;
   font-size: .75rem !important;
+   display:block;
 }
 
 
@@ -993,7 +1000,7 @@ button, .button {
   display:none;
 }
 
-@media only screen and (max-width: 48em) {
+@media only screen and (max-width: 40em) {
     #button-mobile, #cart-preview.mobile, #mobile-access { display:block;}
     #wrapper-menu, #menu-top {display:none;}
 }
@@ -1204,10 +1211,10 @@ button, .button {
 		width: 40%;}
 		
 	#home-gallery .text {
-			top: 5rem;}
+		top: 3rem;}
 			
 	#home-gallery h1 {
-	font-size: 1.5rem;}
+		font-size: 1.3rem;}
 	
 	#home-gallery .button {
 		margin: 1rem 0 0;}
@@ -1215,7 +1222,10 @@ button, .button {
 
 @media only screen and (min-width: 60em) {
 	#home-gallery .text {
-			top: 10rem;}
+		top: 10rem;}
+	
+	#home-gallery h1 {
+		font-size: 1.5rem;}
 }
 
 
@@ -1244,12 +1254,16 @@ button, .button {
     transition: transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d;
-    -webkit-backface-visibility: hidden;
+    /*-webkit-backface-visibility: hidden;*/
 }
 
 #featured-products li:hover img {
 	-webkit-transform: translate3d(0, 0, 0) scale3d(1.05, 1.05, 1.05);
     transform: translate3d(0, 0, 0) scale3d(1.05, 1.05, 1.05);
+}
+
+#featured-products .products, #news-items, #child-content {
+	margin: 0 0 !important;
 }
 
 /*

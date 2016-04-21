@@ -12,7 +12,7 @@
 <!--[if (gt IE 9)|!(IE)]><!--><html <?php language_attributes(); ?> ><!--<![endif]-->
 	<head>
 		<meta charset="<?php bloginfo( 'charset' ); ?>" />
-		<meta name="viewport" content="width=device-width">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 		<title><?php wp_title( '|', true, 'right' ); ?></title>
 			
 	    <meta name="description" content="<?php echo '' . get_bloginfo ( 'description' );  ?>">
@@ -37,7 +37,7 @@
 			
 			 <div id="inner-wrap">
 		       <nav id="mobile-access" role="navigation" class="">
-		          <?php wp_nav_menu( array( 'container_class' => 'menu-header', 'theme_location' => 'primary' ) ); ?>
+		          <?php wp_nav_menu( array( 'container_class' => 'menu-header', 'theme_location' => 'mobile' ) ); ?>
 		          <a href="javascript:void(0)" id="nav-close-btn"></a>
 		       </nav><!-- #access -->            
 		       <div class="drawer-close drawer-back"></div>

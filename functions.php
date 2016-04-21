@@ -49,6 +49,7 @@ function amanuta_setup() {
 	register_nav_menus( array(
 		'primary' => __( 'Primary Navigation', 'amanuta' ),
 		'secondary' => __( 'Secondary Navigation', 'amanuta' ),
+		'mobile' => __( 'Mobile Navigation', 'amanuta' ),
 	) );
 	
 	/*
@@ -559,7 +560,7 @@ add_filter( 'default_content', 'my_default_content', 10, 2 );
  * @since amanuta 1.0
  *
 */
-//show_admin_bar(false);
+show_admin_bar(false);
 
 
 ?>

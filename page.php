@@ -10,6 +10,8 @@ get_header(); ?>
 
 <div id="content" class="site-content row">
 	
+	<div class="column small-12 no-padding-left">
+	
 	<?php
 		while ( have_posts() ) : the_post(); ?>
 
@@ -43,6 +45,8 @@ get_header(); ?>
 
 
 	<?php endwhile; ?>
+	
+	</div>
 
 </div><!-- #content -->
 
