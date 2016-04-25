@@ -1941,6 +1941,68 @@ input[type="text"], input[type="password"], input[type="date"], input[type="date
 }
 
 
+.page .dcsns {
+	background: transparent;
+	border-radius: 0;
+}
+
+.page .stream > li {
+	border-radius: 0 0 5px 5px !important;
+	background-image: none;
+	box-shadow: none;
+	margin: 10px;
+	background: #d9d7c5;
+	border: none;
+}
+
+.page .stream li .section-text {
+	color: #333;
+}
+
+.page .stream li .inner {
+	margin-bottom: 2rem;
+}
+
+.page .stream li.dcsns-facebook .inner {
+	margin-bottom: 4rem;
+}
+
+.page .dcsns .section-intro {
+	padding: .9rem .4rem 1.4rem;
+	text-align: right;
+}
+
+.page .dcsns .section-intro a {
+	color: #efefef;
+}
+
+.page .stream li.dcsns-facebook .section-text a {
+	color: #c92200;
+}
+
+.page .stream li a {
+	color: #555;
+	text-decoration: underline;
+}
+
+.page .dcsns-toolbar .filter a {
+	height: 30px;
+}
+
+.page .stream .section-thumb {
+	text-align: center;
+	float: none;
+}
+
+.page .stream li .section-thumb img, 
+.page .stream li .section-text img {
+	border: none !important;
+	max-width: 100% !important;
+	padding: 0;
+	margin:  0 auto 10px !important;
+}
+
+
 /* ==========================================================================
    5. Media Queries
    ========================================================================== */ 
