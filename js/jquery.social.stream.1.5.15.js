@@ -190,7 +190,7 @@
 				if(this.o.filter == true){
 					var fclass = this.o.center == true ? 'option-set filter dc-center' : 'option-set filter';
 					x += '<ul id="dcsns-filter" class="' + fclass + '">';
-					x += this.o.wall == true ? '<li><a href="#filter" data-group="dc-filter"  data-filter="*" class="selected link-all">all</a></li>' : '' ;
+					x += this.o.wall == true ? '<li><a href="#filter" data-group="dc-filter"  data-filter="*" class="selected link-all">todo</a></li>' : '' ;
 					var $f = $('.filter',el);
 					$.each(opt.feeds, function(k,v){
 						x += v.id != '' ? '<li class="active f-'+k+'"><a href="#filter" rel="'+k+'" data-group="dc-filter" data-filter=".dcsns-'+k+'"><img src="'+opt.imagePath+opt.feeds[k].icon+'" alt="" /></a></li>' : '' ;
