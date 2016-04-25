@@ -268,6 +268,9 @@ function amanuta_scripts() {
 	
 	wp_enqueue_style( 'foundation.min', get_template_directory_uri() . '/css/foundation.min.css', array(), '5.3.3' );
 	
+	wp_enqueue_style( 'dcsns_wall', get_template_directory_uri() . '/css/dcsns_wall.css');
+
+	wp_enqueue_style( 'dcsns_dark', get_template_directory_uri() . '/css/dcsns_dark.css');
 	// Add Genericons font, used in the main stylesheet.
 	wp_enqueue_style( 'genericons', get_template_directory_uri() . '/css/genericons.css', array(), '3.0.2' );
 
@@ -282,6 +285,9 @@ function amanuta_scripts() {
 		wp_enqueue_script( 'amanuta-keyboard-image-navigation', get_template_directory_uri() . '/js/keyboard-image-navigation.js', array( 'jquery' ), '20130402' );
 	}
 
+	wp_enqueue_script( 'jquery.social.stream', get_template_directory_uri() . '/js/jquery.social.stream.1.5.15.js', array(), false, true);
+	wp_enqueue_script( 'jquery.social.stream.wall', get_template_directory_uri() . '/js/jquery.social.stream.wall.1.6.js', array(), false, true);
+	wp_enqueue_script( 'jquery.social.setup', get_template_directory_uri() . '/js/jquery.social.stream.setup.js', array(), false, true);
 	
 }
 add_action( 'wp_enqueue_scripts', 'amanuta_scripts' );
