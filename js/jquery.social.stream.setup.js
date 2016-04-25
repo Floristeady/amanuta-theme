@@ -5,23 +5,8 @@ $(document).ready(function($){
 				id: '228474407163227',
 				intro: "Publicado",
 				feed: "posts",
-				url: "/wp-content/themes/amanuta-theme-master/facebook.php"
-			}
-			,
-			// instagram: {
-			// 	id: '!1652168794',
-			// 	intro: "Publicado ",
-			// 	accessToken: "1652168794.4a4da2c.79a7d80aaed7425f9180b5207a22b59d",
-			// 	redirectUrl: 'http://localhost',
-			// 	clientId: "02b23939d63944208cb96620d78e3b8c"
-			// }
-			// instagram: {
-			// 	id: '!2845657272',
-			// 	intro: "Publicado ",
-			// 	accessToken: "2845657272.4a4da2c.b329989c6f3849fdbf21786fe33012c9",
-			// 	redirectUrl: 'http://localhost',
-			// 	clientId: "4a4da2ce42e24b7cad471dc3d0c13245"
-			// }
+				url: "/wp-content/themes/amanuta-theme/facebook.php"
+			},
 			instagram: {
 				id: '!1652168794',
 				intro: "Publicado ",
@@ -44,7 +29,7 @@ $(document).ready(function($){
 		cache: false,
 		max: 'limit',
 		limit: 10,	
-		iconPath: '/wp-content/themes/amanuta-theme-master/images/dcsns-dark/',
-		imagePath: '/wp-content/themes/amanuta-theme-master/images/dcsns-dark/'
+		iconPath: '/wp-content/themes/amanuta-theme/images/dcsns-dark/',
+		imagePath: '/wp-content/themes/amanuta-theme/images/dcsns-dark/'
 	});
 });
